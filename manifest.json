@@ -1,0 +1,26 @@
+{
+  "id": "adoqa-analytics-pwa",
+  "name": "ADOQA Analytics",
+  "short_name": "ADOQA",
+  "description": "Professional Business Intelligence & Analytics",
+  "start_url": "./index.html?utm_source=pwa",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0A0A0A",
+  "theme_color": "#F5C842",
+  "icons": [
+    {
+      "src": "./assets/Logopit_1773295062339.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./assets/Logopit_1773295062339.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
