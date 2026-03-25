@@ -2,7 +2,7 @@
   "id": "adoqa-analytics-pwa",
   "name": "ADOQA Analytics",
   "short_name": "ADOQA",
-  "description": "Professional Business Intelligence & Analytics",
+  "description": "ADOQA is a Local Commerce Operating System for small retailers in India. Get systematic data insights, demand visibility, and transaction intelligence for your business.",
   "start_url": "./index.html?utm_source=pwa",
   "scope": "./",
   "display": "standalone",

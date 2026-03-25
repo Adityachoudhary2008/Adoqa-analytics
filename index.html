@@ -4,7 +4,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-  <title>ADOQA Analytics</title>
+  <title>ADOQA Analytics | Local Commerce Operating System for Retailers</title>
+  <meta name="description" content="ADOQA is a Local Commerce Operating System for small retailers in India. Get systematic data insights, demand visibility, and transaction intelligence for your business.">
+  <meta name="keywords" content="Local Commerce, Retail Analytics, POS, India Retail Tech, Small Business OS, Transaction Intelligence, Demand Visibility, Samastipur, No-Commission Platform">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://adoqa-analytics.netlify.app">
+  <meta property="og:title" content="ADOQA Analytics - Local Commerce Operating System">
+  <meta property="og:description" content="Unlock the power of retail analytics for your small business. Systematic data insights for India's local markets.">
+  <meta property="og:image" content="https://adoqa-analytics.netlify.app/assets/Logopit_1773295062339.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://adoqa-analytics.netlify.app">
+  <meta property="twitter:title" content="ADOQA Analytics">
+  <meta property="twitter:description" content="Empowering 60 million small retailers with transaction intelligence.">
+  <meta property="twitter:image" content="https://adoqa-analytics.netlify.app/assets/Logopit_1773295062339.png">
+
+  <link rel="canonical" href="https://adoqa-analytics.netlify.app">
   <link rel="manifest" href="./manifest.json">
   <meta name="theme-color" content="#0A0A0A">
   <meta name="mobile-web-app-capable" content="yes">
@@ -12,6 +30,27 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="ADOQA">
   <link rel="apple-touch-icon" href="assets/Logopit_1773295062339.png">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "ADOQA Analytics",
+    "operatingSystem": "Web, Android, iOS",
+    "applicationCategory": "BusinessApplication",
+    "description": "Local Commerce Operating System for small retailers in India.",
+    "offers": {
+      "@type": "Offer",
+      "price": "199",
+      "priceCurrency": "INR"
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "ADOQA",
+      "url": "https://adoqa.netlify.app"
+    }
+  }
+  </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <style>
@@ -1178,6 +1217,69 @@
         filter: brightness(0.85) contrast(1.1) saturate(1.2);
       }
     }
+
+    /* ── UPDATE POPUP ── */
+    .update-popup-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.85);
+      z-index: 3000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+      backdrop-filter: blur(8px);
+    }
+
+    .update-popup-overlay.show {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .update-popup {
+      background: var(--bk2);
+      border: var(--bd);
+      border-radius: 20px;
+      padding: 24px;
+      width: 90%;
+      max-width: 400px;
+      text-align: center;
+      transform: scale(0.9);
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    }
+
+    .update-popup-overlay.show .update-popup {
+      transform: scale(1);
+    }
+
+    .update-popup-icon {
+      font-size: 3rem;
+      margin-bottom: 16px;
+    }
+
+    .update-popup-title {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--y);
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .update-popup-msg {
+      font-size: 0.9rem;
+      color: var(--g1);
+      line-height: 1.6;
+      margin-bottom: 24px;
+      text-align: left;
+    }
+
+    .update-popup-msg p {
+      margin-bottom: 12px;
+    }
   </style>
 </head>
 
@@ -1207,8 +1309,8 @@
   </script>
   <div id="security-screen" style="display:flex; position:fixed; top:0; left:0; width:100%; height:100%; background:var(--bk); z-index:20000; flex-direction:column; align-items:center; justify-content:center; padding:20px; color:var(--wh); font-family:inherit;">
     <div id="sec-brand" style="margin-bottom:30px; text-align:center;">
-      <img src="assets/Logopit_1773295062339.png" style="width:80px; height:80px; border-radius:15px; margin-bottom:15px;">
-      <div style="font-weight:800; font-size:1.5rem; letter-spacing:1px; color:var(--y)">ADOQA <span style="color:var(--wh)">ANALYTICS</span></div>
+      <img src="assets/Logopit_1773295062339.png" alt="ADOQA Logo" style="width:80px; height:80px; border-radius:15px; margin-bottom:15px;">
+      <h1 style="font-weight:800; font-size:1.5rem; letter-spacing:1px; color:var(--y); margin: 0;">ADOQA <span style="color:var(--wh)">ANALYTICS</span></h1>
     </div>
     <div id="sec-ui-content" style="width:100%; max-width:320px;"></div>
   </div>
@@ -1218,7 +1320,7 @@
     <!-- TOPBAR -->
     <div id="topbar">
       <div class="tb-logo">
-        <img src="assets/Logopit_1773295062339.png" alt="ADOQA">
+        <img src="assets/Logopit_1773295062339.png" alt="ADOQA Logo">
       </div>
       <div class="tb-right">
         <div class="tb-date" id="tb-date-el"></div>
@@ -1262,7 +1364,7 @@
       <div class="sec active" id="sec-dashboard">
         <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:13px">
           <div>
-            <div style="font-size:1rem;font-weight:700">Dashboard</div>
+            <h2 style="font-size:1rem;font-weight:700">Dashboard</h2>
             <div id="db-shopname" style="font-size:.75rem;color:var(--g2);margin-top:2px"></div>
           </div>
           <div class="pills">
@@ -1884,7 +1986,7 @@
   <!-- WELCOME ONBOARDING OVERLAY -->
   <div class="overlay" id="onboarding-overlay" style="background:var(--bk);z-index:3000">
     <div style="max-width:400px;width:90%;margin:auto;text-align:center;padding:40px 20px">
-      <img src="assets/Logopit_1773295062339.png"
+      <img src="assets/Logopit_1773295062339.png" alt="ADOQA Logo"
         style="height:60px;width:auto;margin-bottom:20px;display:block;margin-left:auto;margin-right:auto;filter:brightness(0.85) contrast(1.1) saturate(1.2)">
       <h1 style="font-size:1.8rem;font-weight:800;color:var(--y);margin-bottom:10px">Welcome to ADOQA</h1>
       <p style="color:var(--g2);font-size:.95rem;line-height:1.5;margin-bottom:30px">
@@ -3849,7 +3951,43 @@
       checkSecurity();
     }
     init();
+
+    /* ── UPDATE POPUP LOGIC ── */
+    function showUpdatePopup() {
+      const el = document.getElementById('update-popup-overlay');
+      if (el) el.classList.add('show');
+    }
+
+    function dismissUpdatePopup() {
+      const el = document.getElementById('update-popup-overlay');
+      if (el) el.classList.remove('show');
+    }
+
+    // Auto-show popup on load
+    setTimeout(showUpdatePopup, 1000);
   </script>
+
+  <div id="update-popup-overlay" class="update-popup-overlay">
+    <div class="update-popup">
+      <div class="update-popup-icon">⚠️</div>
+      <div class="update-popup-title">Major Update Notification</div>
+      <div class="update-popup-msg">
+        <div style="margin-bottom:20px">
+          <p style="color:var(--y);font-weight:700;font-size:0.75rem;letter-spacing:0.1em;margin-bottom:4px">CRITICAL UPGRADE: v1.02.01 → v2.00.00</p>
+          <p><strong>[English]</strong></p>
+          <p>We are transitioning to a sophisticated new system architecture. Due to these core changes, all offline data must be reset. Please <strong>export your data</strong> before the deadline: <strong>Sunday, 29 March 2026, 12:00 PM (noon)</strong> to ensure no information is lost.</p>
+        </div>
+        <hr style="margin:16px 0; border:0; border-top:1px solid rgba(255,255,255,0.1)">
+        <div>
+          <p style="color:var(--y);font-weight:700;font-size:0.75rem;letter-spacing:0.1em;margin-bottom:4px">महत्वपूर्ण अपग्रेड: v1.02.01 → v2.00.00</p>
+          <p><strong>[Hindi]</strong></p>
+          <p>हम एक नए और आधुनिक सिस्टम आर्किटेक्चर की ओर बढ़ रहे हैं। इस बड़े बदलाव के कारण, पुराना ऑफलाइन डेटा रीसेट हो जाएगा। डेटा सुरक्षित रखने के लिए कृपया <strong>रविवार, 29 मार्च 2026, दोपहर 12:00 बजे</strong> से पहले अपना डेटा एक्सपोर्ट (Export) करना सुनिश्चित करें।</p>
+        </div>
+      </div>
+      <button class="btn btn-y btn-full" onclick="dismissUpdatePopup()">OK / ठीक है</button>
+    </div>
+  </div>
+
   </div><!-- /shell -->
 
 </body>
